@@ -6,7 +6,7 @@
 }
 
 body {
-  background: #56baed;
+  background: #37363d;
 }
 .select-box,
 .play-board,
@@ -15,22 +15,31 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
 }
 
 .select-box {
-  background: #fff;
+  background: #e3874f;
   padding: 20px 25px 25px;
   border-radius: 5px;
   max-width: 330px;
   width: 100%;
-  display: none;
+  /* transition: all 0.3s ease; */
+
+  /* display: none; */
+}
+
+.select-box.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.5);
 }
 
 .select-box header {
   font-size: 23px;
   font-weight: 600;
   padding-bottom: 10px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #e3874f;
 }
 
 .select-box .title {
@@ -45,11 +54,11 @@ body {
 }
 
 .play-board .details {
-  background: #fff;
+  background: #e3874f;
   padding: 7px;
   border-radius: 5px;
 }
-.play-board .details .player {
+.play-board .details .players {
   display: flex;
   width: 100%;
   justify-content: space-around;
@@ -67,10 +76,21 @@ body {
   text-align: center;
   position: relative;
   z-index: 5;
+  transition: all 0.3s ease;
 }
 
 .play-board {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.5);
+
+  /* display: none; */
+}
+
+.play-board.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(0.5);
 }
 
 .details span:first-child {
@@ -86,10 +106,23 @@ body {
   left: 0;
   height: 100%;
   width: 50%;
-  background: #56baed;
+  background: #39363d;
   border-radius: 5px;
   z-index: 2;
+  transition: all 0.3s ease;
 }
+
+.player.active span:first-child {
+  color: #39363d;
+}
+.player.active span:nth-child(2) {
+  color: #fff;
+}
+.player.active .slider {
+  left: 50%;
+  /* color: #fff; */
+}
+
 .play-area {
   margin-top: 20px;
 }
@@ -102,12 +135,12 @@ body {
   margin: 2px;
   height: 80px;
   width: 80px;
-  background: #fff;
+  background: #e3874f;
   border-radius: 5px;
   font-size: 40px;
   text-align: center;
   line-height: 80px;
-  color: #56baed;
+  color: #39363d;
 }
 
 .option button {
@@ -117,7 +150,7 @@ body {
   padding: 8px 0;
   border: none;
   outline: none;
-  background-color: #56baed;
+  background-color: #39363d;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
